@@ -14,10 +14,10 @@ public class UIManager : MonoBehaviour
     public GameObject cardobject;
     public Transform nextcard;
     public Sprite[] cardsprites;
-    private int maxCardNum=4;//卡牌面板最大容量
-    private int currentCardNum;//当前面板卡牌数
-    public Transform[] boardCard;//卡牌面板四个位置
-    public Transform boardTrans;//卡牌面板的transform
+    private int maxCardNum=4;
+    private int currentCardNum;
+    public Transform[] boardCard;
+    public Transform boardTrans;
     private void Awake()
     {
         Instance = this;
@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
         t.SetParent(boardTrans);
         t.DOLocalMove(boardCard[posID].localPosition, 0.4f).OnComplete(() => { CompleteMove(t); });
     }
-    //一张牌发完后执行下一张
+    
     private void CompleteMove(Transform t)
     {
         CreatNewCard();
