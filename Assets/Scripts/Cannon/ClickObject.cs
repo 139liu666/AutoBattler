@@ -8,29 +8,15 @@ using UnityEngine.UI;
 
 using UnityEngine.EventSystems;
 using UnityEngine.WSA;
+using System;
 
 
 
 public class ClickObject : MonoBehaviour
 
 {
-
     public GameObject cube;
-
     public ObjectLauncher lanceur;
-
-    // Start is called before the first frame update
-
-    void Start()
-
-    {
-        
-
-    }
-
-
-
-    // Update is called once per frame
 
     void Update()
 
@@ -43,8 +29,6 @@ public class ClickObject : MonoBehaviour
             if (cube == GetClickedObject(out RaycastHit hit))
 
             {
-
-                print("clicked/touched!");
                 lanceur.LaunchObject();
             }
 

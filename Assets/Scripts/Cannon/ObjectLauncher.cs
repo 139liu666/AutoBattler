@@ -4,6 +4,8 @@ public class ObjectLauncher : MonoBehaviour
 {
     // Référence de l'objet à lancer (Prefab)
     public GameObject objectPrefab;
+    public AudioSource audioSource;
+    public GameObject cannon;
 
     // Point d'apparition de l'objet
     public Transform spawnPoint;
@@ -13,8 +15,7 @@ public class ObjectLauncher : MonoBehaviour
     public float recoveryTime = 10f;    // Temps de récupération en secondes
 
     private float lastLaunchTime = -10f; // Le temps du dernier lancement
-    public Image recoveryBar;     
-
+    public Image recoveryBar;    
     void Update() {
         UpdateRecoveryBar();
     }
@@ -24,8 +25,8 @@ public class ObjectLauncher : MonoBehaviour
         Debug.Log(Time.time - lastLaunchTime);
         if (Time.time - lastLaunchTime >= recoveryTime) 
         {
-
             lastLaunchTime = Time.time;
+            audioSource.Play();
             Debug.Log(lastLaunchTime);
             if (objectPrefab == null || spawnPoint == null)
             {
