@@ -25,7 +25,7 @@ public class Canon : MonoBehaviour
             transform.position, transform.rotation);
 
         ball.GetComponent<Rigidbody>().AddRelativeForce(new
-        Vector3(0, 0, launchVelocity));
+        Vector3(0, launchVelocity, 0 ));
         Destroy(ball, 5f);
     }
     // Update is called once per frame
